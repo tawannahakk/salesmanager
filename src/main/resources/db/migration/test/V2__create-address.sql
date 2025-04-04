@@ -1,0 +1,11 @@
+CREATE SEQUENCE address_seq START WITH 1 INCREMENT BY 1;
+
+CREATE TABLE tb_address(
+    id BIGINT DEFAULT NEXT VALUE FOR address_seq PRIMARY KEY,
+    street VARCHAR(255) NOT NULL,
+    number VARCHAR(255) NOT NULL,
+    zip_code CHAR(8) NOT NULL,
+    neighborhood VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state VARCHAR(255) NOT NULL
+);
