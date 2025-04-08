@@ -3,6 +3,9 @@ package com.portfolio.salesmanager.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "tb_person")
 @NoArgsConstructor
@@ -26,4 +29,12 @@ public class Person {
 
     @Column(unique = true)
     private String cpf;
+
+    @ManyToMany
+    @JoinTable(name = "tb_person_address",
+            joinColumns = @JoinColumn(name = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id")
+    )
+    private List<Address> addresses = new ArrayList<>();
+
 }
